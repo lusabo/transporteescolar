@@ -29,6 +29,5 @@ func Connection() {
 }
 
 func SyncDB() {
-	DB.AutoMigrate(&models.Estado{}, &models.Cidade{}, &models.Bairro{}, &models.Escola{})
-	//, , , &models.Motorista{}
+	DB.AutoMigrate(&models.Estado{}, &models.Cidade{}, &models.Bairro{}, &models.Escola{}, &models.Motorista{})
 }

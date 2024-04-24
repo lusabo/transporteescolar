@@ -6,7 +6,7 @@ import (
 
 type Estado struct {
 	gorm.Model
-	Uf      string `gorm:"not null;unique;size:2"`
-	Nome    string `gorm:"not null;size:20"`
+	Uf      string `gorm:"type:varchar(2);unique;not null"`
+	Nome    string `gorm:"type:varchar(20);not null"`
 	Cidades []Cidade
 }
