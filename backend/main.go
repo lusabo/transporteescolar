@@ -21,8 +21,7 @@ func main() {
 
 	app.Use(cors.New())
 
-	app.Get("/", controllers.HelloIndex)
-	app.Get("/json", controllers.HelloJson)
+	app.Get("/estados", controllers.GetAllEstados)
 
 	app.Listen(":" + os.Getenv("WEB_PORT"))
 
