@@ -1,8 +1,8 @@
 package main
 
 import (
-	"backend/controllers"
 	"backend/initializers"
+	"backend/routes"
 	"os"
 
 	"github.com/gofiber/fiber/v2"
@@ -13,7 +13,7 @@ func init() {
 	initializers.LoadEnv()
 	initializers.Connection()
 	initializers.SyncDB()
-	initializers.Seed()
+	// initializers.Seed()
 }
 
 func main() {
@@ -22,8 +22,7 @@ func main() {
 
 	app.Use(cors.New())
 
-	app.Get("/estados", controllers.GetAllEstados)
-	app.Get("/cidades", controllers.GetAllCidades)
+	routes.Setup(app)
 
 	app.Listen(":" + os.Getenv("WEB_PORT"))
 

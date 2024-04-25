@@ -9,4 +9,5 @@ import (
 func SetupCidadeRoutes(app *fiber.App) {
 	cidadeRouter := app.Group("/cidades")
 	cidadeRouter.Get("/", controllers.GetAllCidades)
+	cidadeRouter.Get("/:cidade_id/bairros", controllers.ListBairrosByCidadeID)
 }
