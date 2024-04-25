@@ -23,6 +23,7 @@ func main() {
 	app.Use(cors.New())
 
 	app.Get("/estados", controllers.GetAllEstados)
+	app.Get("/cidades", controllers.GetAllCidades)
 
 	app.Listen(":" + os.Getenv("WEB_PORT"))
 
