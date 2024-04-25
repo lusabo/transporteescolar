@@ -13,6 +13,7 @@ func init() {
 	initializers.LoadEnv()
 	initializers.Connection()
 	initializers.SyncDB()
+	initializers.Seed()
 }
 
 func main() {
