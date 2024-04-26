@@ -27,3 +27,11 @@ func ListarMotoristas(db *gorm.DB, bairroId uint, escolaId uint) ([]models.Motor
 
 	return motoristas, nil
 }
+
+func BuscarMotorista(db *gorm.DB, motoristaId uint) (models.Motorista, error) {
+	var motorista models.Motorista
+	if err := db.First(&motorista, motoristaId).Error; err != nil {
+		return models.Motorista{}, err
+	}
+	return motorista, nil
+}
