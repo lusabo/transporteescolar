@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func GetAllEstados(db *gorm.DB) ([]models.Estado, error) {
+func ListarEstados(db *gorm.DB) ([]models.Estado, error) {
 	var estados []models.Estado
 	if err := db.Find(&estados).Error; err != nil {
 		return nil, err

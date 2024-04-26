@@ -2,33 +2,27 @@ package controllers
 
 import (
 	"backend/initializers"
-	"backend/models"
 	"backend/repositories"
 
 	"github.com/gofiber/fiber/v2"
 )
 
-func GetAllCidades(c *fiber.Ctx) error {
-	cidades, err := repositories.GetAllCidades(initializers.DB)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Erro ao obter as cidades",
+func ListarCidadesPorEstado(c *fiber.Ctx) error {
+
+	uf := c.Params("uf")
+
+	if uf == "" {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "O parâmetro UF é obrigatório",
 		})
 	}
-	return c.JSON(cidades)
-}
 
-func ListBairrosByCidadeID(c *fiber.Ctx) error {
-	cidadeID := c.Params("cidade_id")
-
-	var bairros []models.Bairro
-	if err := initializers.DB.Where("cidade_id = ?", cidadeID).Find(&bairros).Error; err != nil {
-		return err
+	cidades, err := repositories.ListarCidadesPorEstado(initializers.DB, uf)
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"message": "Erro ao obter as cidades por UF",
+		})
 	}
 
-	return c.JSON(bairros)
-}
-
-func ListEscolasByCidadeID(c *fiber.Ctx) error {
-	return nil
+	return c.JSON(cidades)
 }

@@ -8,6 +8,6 @@ import (
 
 func SetupCidadeRoutes(app *fiber.App) {
 	cidadeRouter := app.Group("/cidades")
-	cidadeRouter.Get("/:cidade_id/bairros", controllers.ListBairrosByCidadeID)
-	cidadeRouter.Get("/:cidade_id/escolas", controllers.ListEscolasByCidadeID)
+	cidadeRouter.Get("/:id/bairros", controllers.ListarBairrosPorCidade)
+	cidadeRouter.Get("/:id/escolas", controllers.ListarEscolasPorCidade)
 }

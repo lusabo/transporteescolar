@@ -7,8 +7,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func GetAllEstados(c *fiber.Ctx) error {
-	estados, err := repositories.GetAllEstados(initializers.DB)
+func ListarEstados(c *fiber.Ctx) error {
+	estados, err := repositories.ListarEstados(initializers.DB)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"message": "Erro ao obter os estados",
