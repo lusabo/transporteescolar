@@ -6,7 +6,7 @@ import (
 
 func SetupMotoristaRoutes(app *fiber.App) {
 	motoristaRouter := app.Group("/motoristas")
-	motoristaRouter.Get("/", nil)
+	motoristaRouter.Get("?bairro=:bairro_id&escola=:escola_id", nil)
 	motoristaRouter.Get("/:motorista_id", nil)
 	motoristaRouter.Post("/", nil)
 }

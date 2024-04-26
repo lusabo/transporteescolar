@@ -28,3 +28,7 @@ func ListBairrosByCidadeID(c *fiber.Ctx) error {
 
 	return c.JSON(bairros)
 }
+
+func ListEscolasByCidadeID(c *fiber.Ctx) error {
+	return nil
+}
