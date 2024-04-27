@@ -9,5 +9,5 @@ import (
 func SetupEstadoRoutes(app *fiber.App) {
 	estadoRouter := app.Group("/estados")
 	estadoRouter.Get("/", controllers.ListarEstados)
-	estadoRouter.Get("/:uf/cidades", controllers.ListarCidadesPorEstado)
+	estadoRouter.Get("/:id/cidades", controllers.ListarCidadesPorEstado)
 }

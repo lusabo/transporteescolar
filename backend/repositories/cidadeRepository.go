@@ -6,15 +6,10 @@ import (
 	"gorm.io/gorm"
 )
 
-func ListarCidadesPorEstado(db *gorm.DB, uf string) ([]models.Cidade, error) {
-
-	var estado models.Estado
-	if err := db.Where("uf = ?", uf).First(&estado).Error; err != nil {
-		return nil, err
-	}
+func ListarCidadesPorEstado(db *gorm.DB, estadoId string) ([]models.Cidade, error) {
 
 	var cidades []models.Cidade
-	if err := db.Where("estado_id = ?", estado.ID).Find(&cidades).Error; err != nil {
+	if err := db.Where("estado_id = ?", estadoId).Find(&cidades).Error; err != nil {
 		return nil, err
 	}
 

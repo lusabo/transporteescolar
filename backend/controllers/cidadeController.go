@@ -9,18 +9,12 @@ import (
 
 func ListarCidadesPorEstado(c *fiber.Ctx) error {
 
-	uf := c.Params("uf")
+	id := c.Params("id")
 
-	if uf == "" {
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"message": "O parâmetro UF é obrigatório",
-		})
-	}
-
-	cidades, err := repositories.ListarCidadesPorEstado(initializers.DB, uf)
+	cidades, err := repositories.ListarCidadesPorEstado(initializers.DB, id)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Erro ao obter as cidades por UF",
+			"message": "Erro ao obter as cidades por estado",
 		})
 	}
 

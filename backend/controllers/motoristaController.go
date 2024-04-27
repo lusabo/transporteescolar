@@ -10,6 +10,7 @@ import (
 
 func ListarMotoristas(c *fiber.Ctx) error {
 
+	//TODO fazer tratamento de erro
 	bairroId, err := strconv.ParseUint(c.Query("bairro"), 10, 32)
 	escolaId, err := strconv.ParseUint(c.Query("escola"), 10, 32)
 
