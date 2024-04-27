@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HelloWorldComponent } from './helloworld/helloworld.component';
+import { PesquisaMotoristaComponent } from './pesquisa-motorista/pesquisa-motorista.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloWorldComponent],
+  imports: [RouterOutlet, PesquisaMotoristaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

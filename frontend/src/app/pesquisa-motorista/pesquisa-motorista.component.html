@@ -1,0 +1,67 @@
+<div class="container">
+    <h1>Pesquisa de Motorista</h1>
+  
+    <!-- Caixa de seleção de estados -->
+    <div class="form-group">
+      <label for="estado">Estado:</label>
+      <select class="form-control" id="estado" (change)="onSelectEstado($event)">
+        <option value="">Selecione...</option>
+        <option *ngFor="let estado of estados" [value]="estado.ID">{{ estado.Nome }}</option>
+      </select>
+    </div>
+  
+    <!-- Caixa de seleção de cidades -->
+    <div class="form-group">
+      <label for="cidade">Cidade:</label>
+      <select class="form-control" id="cidade" (change)="onSelectCidade($event)">
+        <option value="">Selecione...</option>
+        <option *ngFor="let cidade of cidades" [value]="cidade.ID">{{ cidade.Nome }}</option>
+      </select>
+    </div>
+  
+    <!-- Caixa de seleção de bairros -->
+    <div class="form-group">
+      <label for="bairro">Bairro:</label>
+      <select class="form-control" id="bairro" (change)="onSelectBairro($event)">
+        <option value="">Selecione...</option>
+        <option *ngFor="let bairro of bairros" [value]="bairro.ID">{{ bairro.Nome }}</option>
+      </select>
+    </div>
+  
+    <!-- Caixa de seleção de escolas -->
+    <div class="form-group">
+      <label for="escola">Escola:</label>
+      <select class="form-control" id="escola" (change)="onSelectEscola($event)">
+        <option value="">Selecione...</option>
+        <option *ngFor="let escola of escolas" [value]="escola.ID">{{ escola.Nome }}</option>
+      </select>
+    </div>
+  
+    <!-- Botão de pesquisa -->
+    <button class="btn btn-primary" (click)="pesquisarMotoristas()">Pesquisar Motoristas</button>
+  
+    <!-- Tabela de resultados -->
+    <div *ngIf="motoristas && motoristas.length > 0">
+      <h2>Resultados da Pesquisa</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <!-- Adicione mais colunas conforme necessário -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let motorista of motoristas">
+            <td>{{ motorista.nome }}</td>
+            <td>{{ motorista.telefone }}</td>
+            <td>{{ motorista.email }}</td>
+            <!-- Adicione mais colunas conforme necessário -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+  
